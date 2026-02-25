@@ -18,13 +18,14 @@ namespace ReceptAPI.Controllers
             {
                 try
                 {
-                    var keresett = context.Recepts.Include(s => s.Szakacs).Include(n => n.Nehezseg).Select(d => new ReceptIdDTO()
+                    var keresett = context.Recepts.Include(s => s.Szakacs).Include(n => n.Nehezseg).Where(i => i.Id == id).Select(d => new ReceptIdDTO()
                     {
                         Nev = d.Nev,
                         Szint = d.Nehezseg.Szint,
                         ElkeszitesiIdo = d.ElkeszitesiIdo,
                         SzakacsNev = d.Szakacs.Nev
                     });
+
                     if (keresett != null)
                     {
                         return Ok(keresett);
