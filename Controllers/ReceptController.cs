@@ -24,7 +24,7 @@ namespace ReceptAPI.Controllers
                         Szint = d.Nehezseg.Szint,
                         ElkeszitesiIdo = d.ElkeszitesiIdo,
                         SzakacsNev = d.Szakacs.Nev
-                    });
+                    }).First();
 
                     if (keresett != null)
                     {
